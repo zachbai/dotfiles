@@ -5,17 +5,17 @@ filetype off
 set encoding=utf-8
 set t_Co=256
 syntax on " enable syntax highlighting 
-set runtimepath^='~/.vim/' " activate Pathogen
+
+colors base16-gruvbox-dark-hard
 
 set backspace=indent,eol,start
 set nowrap
 
-set updatetime=250 " for gitgutter refresh
-
+" Default tab settings
 set tabstop=4 " number of visual spaces per TAB
 set shiftwidth=4 " number of spaces when using shift+[>,<]
 set softtabstop=4 " number of spaces per TAB when editing
-set noexpandtab
+set expandtab
 set autoindent
 
 " Split settings
@@ -27,14 +27,11 @@ filetype indent on " load filetype-specific indent files
 set showmatch " highlight matching parens, brackets, etc.
 
 set hlsearch " highlight search matches
-set colorcolumn=100 " highlight 100th column for text wrap
-
-set backupcopy=yes " safe write for webpack-watch 
 
 " # FileType settings
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 " for HTML files, set tab length=2
-autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2 " for CSS files, set tab length=2
-autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2 " for SCSS files, set tab length=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 
+autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Basic Personal Settings {{{
 let mapleader = ' '
@@ -80,10 +77,6 @@ let g:lsc_auto_map = {
     \ 'Completion': 'completefunc',
 \}
 
-" Valloric/ListToggle
-let g:lt_location_list_toggle_map = '<C-e>'
-let g:lt_quickfix_list_toggle_map = '<S-e>'
-
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -106,10 +99,6 @@ if exists('$TMUX')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-set t_ut=
-let ayucolor="mirage"
-let g:airline_theme="ayu"
-colorscheme ayu
 """"""""""""""
 
 " # Mappings
