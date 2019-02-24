@@ -39,29 +39,6 @@ autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2 " for SCSS f
 " Basic Personal Settings {{{
 let mapleader = ' '
 
-" Plugins 
-call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-surround'
-Plug 'pangloss/vim-javascript'
-Plug 'raimondi/delimitmate'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ayu-theme/ayu-vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'benmills/vimux'
-Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'natebosch/vim-lsc'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'Valloric/ListToggle'
-Plug '~/Developer/potion.vim'
-call plug#end()
-""""""""""""""
-" # Plugin configs
-
 " junegunn/fzf
 set rtp+=/usr/local/opt/fzf
 
