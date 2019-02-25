@@ -1,4 +1,4 @@
-#zachbai/dotfiles
+# zachbai/dotfiles
 
 ## Installation
 
