@@ -1,24 +1,41 @@
-function! smash#right()
-  call smash#smash('right')
-endfunction
-
-function! smash#left()
-  call smash#smash('left')
-endfunction
-
-function! smash#up()
-endfunction
-
-function! smash#down()
-  call smash#smash('down')
-endfunction
+let s:smash_state = {}
 
 let s:saved_cp = getcurpos()[1:]
 let s:saved_width = winwidth(0)
 let s:saved_height = winheight(0)
 let s:smashed=0
 
-function! smash#smash(direction)
+function! smash#stateforwindow(window_num) abort
+  return has_key(s:smash_state, a:window_num)
+    ? s:smash_state[a:window_num]
+    : 0
+endfunction
+
+" Returns the number of lines or columns to smash, depending on a:direction.
+function! smash#smash_delta(direction) abort
+  if a:direction ==# 'right'
+  elseif a:direction =# 'left'
+  elseif a:direction ==# 'up'
+  elseif a:direction ==# 'down'
+  endif
+endfunction
+
+function! smash#right() abort
+  call smash#smash('right')
+endfunction
+
+function! smash#left() abort
+  call smash#smash('left')
+endfunction
+
+function! smash#up() abort
+endfunction
+
+function! smash#down() abort
+  call smash#smash('down')
+endfunction
+
+function! smash#smash(direction) abort
   let s:saved_cp = getcurpos()[1:]
   let l:directionchar = ''
   let l:smashdelta= 0
