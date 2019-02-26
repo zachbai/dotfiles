@@ -37,7 +37,7 @@ if has('statusline')
   set statusline+=%*              " Reset highlight group.
 
   " Init the statusline with initialized highlight groups
-  " call statusline#update_highlight() 
+  call statusline#update_highlight() 
 
   if has('autocmd')
     augroup ZbStatusline
@@ -45,7 +45,7 @@ if has('statusline')
       autocmd ColorScheme * call statusline#update_highlight()
       autocmd User FerretAsyncStart call statusline#async_start()
       autocmd User FerretAsyncFinish call statusline#async_finish()
-      autocmd BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,TextChangedP,WinEnter * call statusline#check_modified()
+      autocmd BufWinEnter,BufWritePost,FileWritePost,TextChanged,TextChangedI,WinEnter * call statusline#check_modified()
       autocmd BufEnter,FocusGained,VimEnter,WinEnter * call statusline#focus_statusline()
       autocmd FocusLost,WinLeave * call statusline#blur_statusline()
     augroup END
