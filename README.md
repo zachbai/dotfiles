@@ -3,7 +3,8 @@
 ## Installation
 
 ```
-$ git clone https://github.com/zachbai/dotfiles.git
+$ git clone https://github.com/zachbai/dotfiles.git --recursive
+$ cd dotfiles
 $ chmod u+x link.sh # if needed
 $ ./link.sh
 ```
