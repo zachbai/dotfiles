@@ -10,10 +10,11 @@ set softtabstop=4
 set expandtab
 set autoindent
 
-set splitbelow
+set splitbelow 
 set splitright
 set number " show line numbers
 set relativenumber " show relative line numbers
+set cursorline
 set showmatch " highlight matching parens, brackets, etc.
 
 set hlsearch " highlight search matches
