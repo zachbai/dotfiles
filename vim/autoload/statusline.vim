@@ -59,6 +59,7 @@ function! statusline#lhs() abort
   let l:line=statusline#gutterpadding()
   " HEAVY BALLOT X - Unicode: U+2718, UTF-8: E2 9C 98
   let l:line.=&modified ? 'δ ' : '  '
+
   return l:line
 endfunction
 
@@ -99,7 +100,7 @@ endfunction
 
 let s:default_lhs_color='DiffChange'
 let s:async_lhs_color='Constant'
-let s:modified_lhs_color='DiffAdd'
+let s:modified_lhs_color='IncSearch'
 let s:rhs_color='DiffChange'
 let s:statusline_status_highlight=s:default_lhs_color
 
@@ -136,28 +137,18 @@ function! statusline#update_highlight() abort
   execute 'highlight User1 ' . l:highlight
 
   " LHS highlight
-  let l:fg=pinnacle#extract_bg(s:statusline_status_highlight)
-  let l:bg=pinnacle#extract_fg(s:statusline_status_highlight)
+  let l:fg=pinnacle#extract_fg(s:statusline_status_highlight)
+  let l:bg=pinnacle#extract_bg(s:statusline_status_highlight)
   execute 'highlight User2 ' . pinnacle#highlight({'bg': l:bg, 'fg': l:fg})
 
   " LHS powerline char
-  let l:fg=pinnacle#extract_fg(s:statusline_status_highlight)
+  let l:fg=pinnacle#extract_bg(s:statusline_status_highlight)
   let l:bg=pinnacle#extract_bg('StatusLine')
   execute 'highlight User3 ' . pinnacle#highlight({'bg': l:bg, 'fg': l:fg})
 
-  " RHS powerline char
-  let l:fg = pinnacle#extract_fg(s:rhs_color)
-  let l:bg = pinnacle#extract_bg('StatusLine')
-  execute 'highlight User4 ' .
-        \ pinnacle#highlight({
-        \   'bg': l:bg,
-        \   'fg': l:fg,
-        \   'term': 'bold'
-        \ })
-
   " RHS
-  let l:bg=pinnacle#extract_fg(s:rhs_color)
-  let l:fg=pinnacle#extract_fg('StatusLine')
+  let l:bg=pinnacle#extract_bg(s:statusline_status_highlight)
+  let l:fg=pinnacle#extract_fg(s:statusline_status_highlight)
   execute 'highlight User5 ' .
         \ pinnacle#highlight({
         \   'bg': l:bg,

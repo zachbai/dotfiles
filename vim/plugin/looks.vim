@@ -14,7 +14,7 @@ execute 'highlight VertSplit ' . pinnacle#highlight({'bg': 'NONE'})
 
 let s:fg = pinnacle#extract_bg('IncSearch')
 let s:bg = pinnacle#extract_bg('Normal')
-execute 'highlight CursorLineNr ' . pinnacle#highlight({'bg': s:bg, 'fg': s:fg})
+execute 'highlight CursorLineNr ' . pinnacle#highlight({'bg': '#161819', 'fg': s:fg})
 execute 'highlight CursorLine ' . pinnacle#highlight({'bg':'#161819'})
 execute 'highlight SignColumn ' . pinnacle#highlight({'bg':'bg'})
 execute 'highlight SignifySignAdd ' . pinnacle#highlight({'bg':'bg'})

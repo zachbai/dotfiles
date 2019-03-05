@@ -78,8 +78,7 @@ function! s:save_windows(dir) abort
   endwhile
 endfunction
 
-
-function! s:collapse_windows(dir) abort
+function! s:expand_window(dir) abort
   if a:dir ==# 'r'
     let l:dir_char = 'l'
   elseif a:dir ==# 'l'
@@ -90,19 +89,33 @@ function! s:collapse_windows(dir) abort
     let l:dir_char = 'j'
   endif
 
-  let l:cur_win_nr = ''
+  let l:winnr = winnr()
+  let l:cur_win_nr = l:winnr
+  let l:expand_size = winwidth(0)
+
+  execute 'wincmd ' . l:dir_char
   while l:cur_win_nr != winnr()
     let l:cur_win_nr = winnr()
-
     " resize window height or width based on a:dir
     if a:dir ==# 'r' || a:dir ==# 'l'
-      execute 'vertical resize 4' 
+      let l:expand_size += winwidth(0) - 4
     else
-      execute 'resize 0' 
+      let l:expand_size += winheight(0) - 1
     endif
-    
+
     execute 'wincmd ' . l:dir_char
   endwhile
+
+  execute l:winnr . 'wincmd w'
+  if l:expand_size ==# winwidth(0) || l:expand_size ==# winheight(0)
+    let l:expand_size = 0
+  endif
+  
+  if a:dir ==# 'r' || a:dir ==# 'l'
+    execute 'vertical resize ' . l:expand_size
+  else 
+    execute 'resize ' . l:expand_size
+  endif
 endfunction
 
 function! s:smash(dir) abort
@@ -118,7 +131,7 @@ function! s:smash(dir) abort
   else
     call s:save_windows(a:dir)
     execute l:winnr . 'wincmd w'
-    call s:collapse_windows(a:dir)
+    call s:expand_window(a:dir)
     call s:update_state(l:winnr, a:dir, 1)
   endif
 
