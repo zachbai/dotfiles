@@ -5,7 +5,7 @@ nnoremap <silent> <leader>h :SmashLeft<cr>
 
 augroup SmashAutocmds
   autocmd! 
-  autocmd BufNew,WinNew,QuitPre * SmashReset
+  autocmd WinNew,QuitPre * SmashReset
 augroup END
 
 command! SmashLeft call smash#left()

@@ -25,3 +25,9 @@ execute 'highlight SignifyLineDelete ' . pinnacle#highlight({'bg':'bg'})
 execute 'highlight SignifyLineChange ' . pinnacle#highlight({'bg':'bg'})
 
 set fillchars=vert:\ 
+
+execute 'highlight! link Error Underlined'
+
+let s:folded_fg = pinnacle#extract_fg('Directory')
+let s:folded_bg = pinnacle#extract_bg('Folded')
+execute 'highlight! Folded ' . pinnacle#highlight({'fg': s:folded_fg, 'bg': s:folded_bg})
