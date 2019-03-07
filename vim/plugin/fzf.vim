@@ -1,8 +1,9 @@
-nnoremap ;b :Buffers<CR>
-nnoremap ;f :Files<CR>
-nnoremap ;l :Lines<CR>
-nnoremap ;h :call fzf#vim#helptags()<CR>
-nnoremap <leader>f :Ag<CR>
+nnoremap ;b :Buffers<cr>
+nnoremap ;f :Files<cr>
+nnoremap ;l :Lines<cr>
+nnoremap ;h :call fzf#vim#helptags()<cr>
+nnoremap ;s :Snippets<cr>
+nnoremap <leader>f :Ag<cr>
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
