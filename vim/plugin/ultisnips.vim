@@ -1,3 +1,3 @@
-let g:UltiSnipsExpandTrigger="<c-d>"
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-s>"

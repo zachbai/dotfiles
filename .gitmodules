@@ -28,9 +28,3 @@
 [submodule ".vim/bundle/vim-signify"]
 	path = vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule "vim/bundle/ultisnips"]
-	path = vim/bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
-[submodule "vim/bundle/dartlang-snippets"]
-	path = vim/bundle/dartlang-snippets
-	url = https://github.com/natebosch/dartlang-snippets.git
