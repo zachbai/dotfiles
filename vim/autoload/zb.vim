@@ -29,3 +29,10 @@ function! zb#foldtext() abort
   let l:dashes=substitute(v:folddashes, '-', s:middot, 'g')
   return s:raquo . s:middot . s:middot . l:lines . l:dashes . ': ' . l:first
 endfunction
+
+function! zb#attempt_select_last_file()
+  let l:previous=expand('#:t')
+  if l:previous != ''
+    call search('\v<' . l:previous . '>')
+  endif
+endfunction

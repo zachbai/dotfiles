@@ -12,3 +12,10 @@ augroup blur_window
   autocmd!
   autocmd WinLeave,BufLeave * setlocal nocursorline
 augroup END
+
+if has('autocmd')
+  augroup ZbNERDTree
+    autocmd!
+    autocmd User NERDTreeInit call zb#attempt_select_last_file()
+  augroup END
+endif
