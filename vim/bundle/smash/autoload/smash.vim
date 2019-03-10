@@ -1,3 +1,5 @@
+let g:smash_ignore = ['nerdtree']
+
 let s:state_vert = {}
 let s:state_hor = {}
 let s:saved_dims = {}
@@ -34,28 +36,47 @@ endfunction
 function! s:restore_windows(dir) abort
   if a:dir ==# 'r'
     let l:dir_char = 'h'
+    let l:r_dir_char = 'l'
   elseif a:dir ==# 'l'
     let l:dir_char = 'l'
   elseif a:dir ==# 'u'
     let l:dir_char = 'j'
   elseif a:dir ==# 'd'
     let l:dir_char = 'k'
+    let l:r_dir_char = 'j'
   endif
 
+  let l:winnr = winnr()
   let l:cur_win_nr = ''
   while l:cur_win_nr != winnr()
     let l:cur_win_nr = winnr()
     let l:saved_dims = s:saved_dims[s:get_winid(l:cur_win_nr)]
 
     " resize window height or width based on a:dir
-    if a:dir ==# 'r' || a:dir ==# 'l'
+    if a:dir ==# 'l'
       execute 'vertical resize ' . l:saved_dims[0] 
-    else
+    elseif a:dir ==# 'u'
       execute 'resize ' . l:saved_dims[1]
     endif
     
     execute 'wincmd ' . l:dir_char
   endwhile
+  
+  if a:dir ==# 'r' || a:dir ==# 'd'
+    while l:cur_win_nr != l:winnr
+      let l:saved_dims = s:saved_dims[s:get_winid(l:cur_win_nr)]
+
+      " resize window height or width based on a:dir
+      if a:dir ==# 'r'
+        execute 'vertical resize ' . l:saved_dims[0] 
+      elseif a:dir ==# 'd'
+        execute 'resize ' . l:saved_dims[1]
+      endif
+      
+      execute 'wincmd ' . l:r_dir_char
+      let l:cur_win_nr = winnr()
+    endwhile
+  endif
 endfunction
 
 function! s:save_windows(dir) abort
@@ -111,11 +132,46 @@ function! s:expand_window(dir) abort
     let l:expand_size = 0
   endif
   
-  if a:dir ==# 'r' || a:dir ==# 'l'
+  if a:dir ==# 'r'
     execute 'vertical resize ' . l:expand_size
-  else 
+  elseif a:dir ==# 'd'
     execute 'resize ' . l:expand_size
   endif
+endfunction
+
+function! s:collapse_windows(dir) abort
+  if a:dir ==# 'l'
+    let l:dir_char = 'h'
+    let l:r_dir_char = 'l'
+  elseif a:dir ==# 'd'
+    let l:dir_char = 'j'
+    let l:r_dir_char = 'k'
+  endif
+
+  let l:winnr = winnr()
+  let l:cur_win_nr = l:winnr
+  let l:expand_size = winwidth(0)
+
+  " Traverse to left-most or bottom-most window
+  execute 'wincmd ' . l:dir_char
+  while l:cur_win_nr != winnr()
+    let l:cur_win_nr = winnr()
+    execute 'wincmd ' . l:dir_char
+    echo 'hi'
+  endwhile
+  echo l:winnr
+
+  while l:cur_win_nr != l:winnr
+    " resize window height or width based on a:dir
+    if a:dir ==# 'l'
+      execute 'vertical resize 0'
+    elseif a:dir ==# 'u'
+      execute 'resize 0'
+    endif
+
+    execute 'wincmd ' . l:r_dir_char
+    let l:cur_win_nr = winnr()
+  endwhile
 endfunction
 
 function! s:smash(dir) abort
@@ -131,14 +187,17 @@ function! s:smash(dir) abort
   else
     call s:save_windows(a:dir)
     execute l:winnr . 'wincmd w'
-    call s:expand_window(a:dir)
+    if a:dir ==# 'r' || a:dir ==# 'd'
+      call s:expand_window(a:dir)
+    else 
+      call s:collapse_windows(a:dir)
+    endif
     call s:update_state(l:winnr, a:dir, 1)
   endif
 
   execute l:winnr . 'wincmd w'
   call cursor(l:saved_cp) 
 endfunction
-
 
 function! smash#right() abort
   call s:smash('r')
