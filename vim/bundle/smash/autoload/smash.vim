@@ -143,9 +143,9 @@ function! s:collapse_windows(dir) abort
   if a:dir ==# 'l'
     let l:dir_char = 'h'
     let l:r_dir_char = 'l'
-  elseif a:dir ==# 'd'
-    let l:dir_char = 'j'
-    let l:r_dir_char = 'k'
+  elseif a:dir ==# 'u'
+    let l:dir_char = 'k'
+    let l:r_dir_char = 'j'
   endif
 
   let l:winnr = winnr()
@@ -157,9 +157,7 @@ function! s:collapse_windows(dir) abort
   while l:cur_win_nr != winnr()
     let l:cur_win_nr = winnr()
     execute 'wincmd ' . l:dir_char
-    echo 'hi'
   endwhile
-  echo l:winnr
 
   while l:cur_win_nr != l:winnr
     " resize window height or width based on a:dir

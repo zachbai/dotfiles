@@ -3,6 +3,7 @@ let NERDTREEDirArrows=1
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 let NERDTreeHijackNetrw=1
+let NERDTreeIgnore = ['\.orig', '\.swp', '\.swo']
 let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
 
 nnoremap <c-n> :NERDTreeToggle<cr>

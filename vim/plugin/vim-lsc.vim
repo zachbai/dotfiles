@@ -17,5 +17,3 @@ let g:lsc_auto_map = {
     \ 'SignatureHelp': '<C-m>',
     \ 'Completion': 'completefunc',
 \}
-
-let g:lsc_enable_autocomplete = v:false
