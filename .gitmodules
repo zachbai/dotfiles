@@ -43,3 +43,7 @@
 [submodule "ultisnips"]
 	path = vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "dartlang-snippets"]
+    path = vim/bundle/dartlang-snippets
+    url = https://github.com/natebosch/dartlang-snippets.git
+
