@@ -49,3 +49,6 @@
 [submodule "vim/bundle/neoformat"]
 	path = vim/bundle/neoformat
 	url = https://github.com/sbdchd/neoformat.git
+[submodule "vim/bundle/dartlang-snippets"]
+	path = vim/bundle/dartlang-snippets
+	url = https://github.com/natebosch/dartlang-snippets.git
