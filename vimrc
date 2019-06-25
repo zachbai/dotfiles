@@ -16,4 +16,3 @@ endif
 if filereadable(expand('~/local.vim/.vimrc_local'))
   execute 'source ' . expand('~/local.vim/.vimrc_local')
 endif
-
