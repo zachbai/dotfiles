@@ -14,7 +14,3 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
-
-" vim-projectionist
-nnoremap <C-t> :A<cr>
-nnoremap <C-b> :Ebuild<cr>
