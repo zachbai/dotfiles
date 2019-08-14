@@ -1,5 +1,3 @@
-let mapleader=' '
-
 nnoremap <leader>v :vsplit<cr>
 nnoremap <leader>x :split<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>

@@ -12,5 +12,4 @@ if has('nvim')
 
   call deoplete#custom#source('omni', 'functions', s:completion_functions)
   call deoplete#custom#option('sources', s:deoplete_sources)
-  call deoplete#custom#option('auto_refresh_delay', 20)
 endif
