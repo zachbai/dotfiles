@@ -7,15 +7,27 @@ if exists('$TMUX')
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
-colors base16-gruvbox-dark-hard
+" Sets the color scheme based on time of day.
+" If after 5am and before 6pm, sets to a light color scheme
+" Else, sets to a dark color scheme.
+if strftime("%H") < 18 && strftime("%H") > 5
+  colors base16-atelier-sulphurpool-light
+else 
+  colors base16-gruvbox-dark-hard
+  let s:fg = pinnacle#extract_bg('IncSearch')
 
+  " Custom colors for cursor line highlighting, specific to gruvbox-dark.
+  execute 'highlight CursorLineNr ' . pinnacle#highlight({'bg': '#161819', 'fg': s:fg})
+  execute 'highlight CursorLine ' . pinnacle#highlight({'bg':'#161819'})
+endif
+
+" Set line number background color to the same as regular background.
 execute 'highlight LineNr ' . pinnacle#highlight({'bg': 'NONE'})
+
+" Set line number background color to the same as regular background.
 execute 'highlight VertSplit ' . pinnacle#highlight({'bg': 'NONE'})
 
-let s:fg = pinnacle#extract_bg('IncSearch')
-let s:bg = pinnacle#extract_bg('Normal')
-execute 'highlight CursorLineNr ' . pinnacle#highlight({'bg': '#161819', 'fg': s:fg})
-execute 'highlight CursorLine ' . pinnacle#highlight({'bg':'#161819'})
+" Set sign column background to the same as the regular background.
 execute 'highlight SignColumn ' . pinnacle#highlight({'bg':'bg'})
 execute 'highlight SignifySignAdd ' . pinnacle#highlight({'bg':'bg'})
 execute 'highlight SignifySignDelete ' . pinnacle#highlight({'bg':'bg'})
@@ -24,10 +36,13 @@ execute 'highlight SignifyLineAdd ' . pinnacle#highlight({'bg':'bg'})
 execute 'highlight SignifyLineDelete ' . pinnacle#highlight({'bg':'bg'})
 execute 'highlight SignifyLineChange ' . pinnacle#highlight({'bg':'bg'})
 
+" Use space chars in between vertical panes, instead of the default '|'.
 set fillchars=vert:\ 
 
+" Underline errors rather than highlighting their background.
 execute 'highlight! link Error Underlined'
 
+" Some fold styling.
 let s:folded_fg = pinnacle#extract_fg('Directory')
 let s:folded_bg = pinnacle#extract_bg('Folded')
 execute 'highlight! Folded ' . pinnacle#highlight({'fg': s:folded_fg, 'bg': s:folded_bg})
