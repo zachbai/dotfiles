@@ -1,5 +1,5 @@
 if has('nvim')
-  if isdirectory(expand('~/local.vim/.vim'))
+  if isdirectory(expand(g:g3_dotfiles_loc . '.vim'))
     let g:python_host_prog = '/usr/bin/python'
     let g:python3_host_prog = '/usr/bin/python3'
   else 

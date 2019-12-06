@@ -21,4 +21,3 @@ let g:ZbQuickfixStatusline =
       \ . '%5*'
       \ . '%{statusline#rhs()}'
       \ . '%*'
-

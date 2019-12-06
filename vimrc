@@ -9,10 +9,13 @@ filetype plugin indent on
 " Set leader before config scripts are executed. duh.
 let mapleader=' '
 
-if isdirectory(expand('~/local.vim/.vim'))
-  execute 'set runtimepath+=' . expand('~/local.vim/.vim')
+" Location of work-specific dotfiles.
+let g:g3_dotfiles_loc = '~/dotfiles_g3/'
+
+if isdirectory(expand(g:g3_dotfiles_loc . '.vim'))
+  execute 'set runtimepath+=' . expand(g:g3_dotfiles_loc . '.vim')
 endif
 
-if filereadable(expand('~/local.vim/.vimrc_local'))
-  execute 'source ' . expand('~/local.vim/.vimrc_local')
+if filereadable(expand(g:g3_dotfiles_loc . '.vimrc_local'))
+  execute 'source ' . expand(g:g3_dotfiles_loc . '.vimrc_local')
 endif
