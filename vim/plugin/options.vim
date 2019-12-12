@@ -7,6 +7,7 @@ set autoindent
 set splitbelow 
 set splitright
 set number " show line numbers
+set relativenumber " show line numbers relative to current line
 set cursorline
 set showmatch " highlight matching parens, brackets, etc.
 set hlsearch " highlight search matches
