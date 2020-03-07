@@ -43,12 +43,12 @@
 [submodule "ultisnips"]
 	path = vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "vim/bundle/typescript-vim"]
-	path = vim/bundle/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "vim/bundle/neoformat"]
 	path = vim/bundle/neoformat
 	url = https://github.com/sbdchd/neoformat.git
 [submodule "vim/bundle/dartlang-snippets"]
 	path = vim/bundle/dartlang-snippets
 	url = https://github.com/natebosch/dartlang-snippets.git
+[submodule "vim/bundle/yats.vim"]
+	path = vim/bundle/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim.git
