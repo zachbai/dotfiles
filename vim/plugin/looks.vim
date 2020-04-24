@@ -11,12 +11,15 @@ endif
 " If after 5am and before 6pm, sets to a light color scheme
 " Else, sets to a dark color scheme.
 if strftime("%H") < 18 && strftime("%H") > 5
-  colors base16-atelier-sulphurpool-light
+  let g:seoul256_background = 256
+  colors seoul256-light
 else 
-  colors base16-gruvbox-dark-hard
-  let s:fg = pinnacle#extract_bg('IncSearch')
+  let g:seoul256_background = 237
+  colors seoul256
 
-  " Custom colors for cursor line highlighting, specific to gruvbox-dark.
+  "let s:fg = pinnacle#extract_bg('IncSearch')
+
+  "" Custom colors for cursor line highlighting, specific to gruvbox-dark.
   execute 'highlight CursorLineNr ' . pinnacle#highlight({'bg': '#161819', 'fg': s:fg})
   execute 'highlight CursorLine ' . pinnacle#highlight({'bg':'#161819'})
 endif
@@ -25,7 +28,7 @@ endif
 execute 'highlight LineNr ' . pinnacle#highlight({'bg': 'NONE'})
 
 " Set line number background color to the same as regular background.
-execute 'highlight VertSplit ' . pinnacle#highlight({'bg': 'NONE'})
+execute 'highlight VertSplit ' . pinnacle#highlight({'bg': 'bg'})
 
 " Set sign column background to the same as the regular background.
 execute 'highlight SignColumn ' . pinnacle#highlight({'bg':'bg'})

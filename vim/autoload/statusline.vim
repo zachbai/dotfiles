@@ -98,11 +98,26 @@ function! statusline#rhs() abort
   return l:rhs
 endfunction
 
-let s:default_lhs_color='DiffChange'
-let s:async_lhs_color='Constant'
-let s:modified_lhs_color='IncSearch'
-let s:rhs_color='DiffChange'
-let s:statusline_status_highlight=s:default_lhs_color
+let s:powerline_color_default='#BCDEDE'
+let s:powerline_color_modified='#FFDD00'
+let s:powerline_color_pending='#E17899'
+
+let s:statusline_bg_color_default='#E1E1E1'
+let s:statusline_bg_color_modified='#70BDDF'
+let s:statusline_bg_color_pending='#E1E1E1'
+
+let s:statusline_fg_color_default='fg'
+let s:statusline_fg_color_modified='fg'
+let s:statusline_fg_color_pending='fg'
+
+let s:font_color_default='fg'
+let s:font_color_modified='fg'
+let s:font_color_pending='fg'
+
+let s:powerline_color=s:powerline_color_default
+let s:font_color=s:font_color_default
+let s:statusline_bg_color=s:statusline_bg_color_default
+let s:statusline_fg_color=s:statusline_fg_color_default
 
 let s:async=0
 
@@ -117,50 +132,57 @@ function! statusline#async_finish() abort
 endfunction
 
 function! statusline#check_modified() abort
-  if &modified && s:statusline_status_highlight != s:modified_lhs_color
-    let s:statusline_status_highlight=s:modified_lhs_color
+  if &modified && s:powerline_color != s:powerline_color_modified
+    let s:powerline_color=s:powerline_color_modified
+    let s:font_color=s:font_color_modified
+    let s:statusline_bg_color=s:statusline_bg_color_modified
+    let s:statusline_fg_color=s:statusline_fg_color_modified
     call statusline#update_highlight()
   elseif !&modified
-    if s:async && s:statusline_status_highlight != s:async_lhs_color
-      let s:statusline_status_highlight=s:async_lhs_color
+    if s:async && s:powerline_color != s:powerline_color_pending
+      let s:powerline_color=s:powerline_color_pending
+      let s:font_color=s:font_color_pending
+      let s:statusline_bg_color=s:statusline_bg_color_pending
+      let s:statusline_fg_color=s:statusline_fg_color_pending
       call statusline#update_highlight()
-    elseif !s:async && s:statusline_status_highlight != s:default_lhs_color
-      let s:statusline_status_highlight=s:default_lhs_color
+    elseif !s:async && s:powerline_color != s:powerline_color_default
+      let s:powerline_color=s:powerline_color_default
+      let s:font_color=s:font_color_default
+      let s:statusline_bg_color=s:statusline_bg_color_default
+      let s:statusline_fg_color=s:statusline_fg_color_default
       call statusline#update_highlight()
     endif
   endif
 endfunction
 
 function! statusline#update_highlight() abort
-  " StatusLine + bold (used for file names).
-  let l:highlight= pinnacle#embolden('StatusLine')
-  execute 'highlight User1 ' . l:highlight
+  " StatusLine (middle part)
+  execute 'highlight StatusLine ' . pinnacle#highlight({'bg': s:statusline_fg_color,
+        \'fg': s:statusline_bg_color})
+  execute 'highlight link User1 StatusLine'
 
   " LHS highlight
-  let l:fg=pinnacle#extract_fg(s:statusline_status_highlight)
-  let l:bg=pinnacle#extract_bg(s:statusline_status_highlight)
-  execute 'highlight User2 ' . pinnacle#highlight({'bg': l:bg, 'fg': l:fg})
+  execute 'highlight User2 ' . pinnacle#highlight({'bg': s:powerline_color,
+        \'fg': s:font_color})
 
   " LHS powerline char
-  let l:fg=pinnacle#extract_bg(s:statusline_status_highlight)
-  let l:bg=pinnacle#extract_bg('StatusLine')
-  execute 'highlight User3 ' . pinnacle#highlight({'bg': l:bg, 'fg': l:fg})
+  let l:filename_background=pinnacle#extract_fg('StatusLine')
+  execute 'highlight User3 ' . pinnacle#highlight({'bg': l:filename_background,
+        \'fg': s:powerline_color})
 
   " RHS
-  let l:bg=pinnacle#extract_bg(s:statusline_status_highlight)
-  let l:fg=pinnacle#extract_fg(s:statusline_status_highlight)
   execute 'highlight User5 ' .
         \ pinnacle#highlight({
-        \   'bg': l:bg,
-        \   'fg': l:fg,
+        \   'bg': s:powerline_color,
+        \   'fg': s:font_color,
         \   'term': 'bold'
         \ })
 
   " RHS Italic
   execute 'highlight User6 ' .
         \ pinnacle#highlight({
-        \   'bg': l:fg,
-        \   'fg': l:bg,
+        \   'bg': s:powerline_color,
+        \   'fg': s:font_color,
         \   'term': 'bold,italic'
         \ })
 
