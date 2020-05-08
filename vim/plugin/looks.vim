@@ -10,25 +10,22 @@ endif
 " Sets the color scheme based on time of day.
 " If after 5am and before 6pm, sets to a light color scheme
 " Else, sets to a dark color scheme.
-if strftime("%H") < 18 && strftime("%H") > 5
-  let g:seoul256_background = 256
-  colors seoul256-light
-else 
-  let g:seoul256_background = 237
+"if strftime("%H") < 18 && strftime("%H") > 5
+  "colors seoul256-light
+"else 
   colors seoul256
+"endif
 
-  "let s:fg = pinnacle#extract_bg('IncSearch')
-
-  "" Custom colors for cursor line highlighting, specific to gruvbox-dark.
-  execute 'highlight CursorLineNr ' . pinnacle#highlight({'bg': '#161819', 'fg': s:fg})
-  execute 'highlight CursorLine ' . pinnacle#highlight({'bg':'#161819'})
-endif
+" Override the Type highlight group with the same color value.
+" By default, this has term=bold set - we don't want that.
+execute 'highlight Type ' . pinnacle#highlight({ 'fg': '#DFBC72'}) . ' gui=None'
 
 " Set line number background color to the same as regular background.
 execute 'highlight LineNr ' . pinnacle#highlight({'bg': 'NONE'})
 
 " Set line number background color to the same as regular background.
-execute 'highlight VertSplit ' . pinnacle#highlight({'bg': 'bg'})
+" Set it to fg becuase VertSplit has gui=reverse.
+execute 'highlight VertSplit ' . pinnacle#highlight({'fg': 'bg'})
 
 " Set sign column background to the same as the regular background.
 execute 'highlight SignColumn ' . pinnacle#highlight({'bg':'bg'})

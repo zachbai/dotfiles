@@ -102,17 +102,17 @@ let s:powerline_color_default='#BCDEDE'
 let s:powerline_color_modified='#FFDD00'
 let s:powerline_color_pending='#E17899'
 
-let s:statusline_bg_color_default='#E1E1E1'
-let s:statusline_bg_color_modified='#70BDDF'
-let s:statusline_bg_color_pending='#E1E1E1'
+let s:statusline_bg_color_default='#3F3F3F'
+let s:statusline_bg_color_modified='#3F3F3F'
+let s:statusline_bg_color_pending='#3F3F3F'
 
 let s:statusline_fg_color_default='fg'
-let s:statusline_fg_color_modified='fg'
+let s:statusline_fg_color_modified='#BCDEDE'
 let s:statusline_fg_color_pending='fg'
 
-let s:font_color_default='fg'
-let s:font_color_modified='fg'
-let s:font_color_pending='fg'
+let s:font_color_default='bg'
+let s:font_color_modified='bg'
+let s:font_color_pending='bg'
 
 let s:powerline_color=s:powerline_color_default
 let s:font_color=s:font_color_default
