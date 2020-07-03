@@ -62,6 +62,3 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "vim/bundle/--force"]
-	path = vim/bundle/--force
-	url = https://github.com/gruvbox-community/gruvbox.git
