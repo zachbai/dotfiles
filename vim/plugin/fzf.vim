@@ -1,4 +1,4 @@
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.6 } }
 
 nnoremap ;b :Buffers<cr>
 nnoremap ;f :Files<cr>

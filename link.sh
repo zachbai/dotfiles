@@ -1,5 +1,6 @@
 CURRENT_DIRECTORY=$(pwd)
 
-ln -fhs $CURRENT_DIRECTORY/tmux.conf $HOME/.tmux.conf
-ln -fhs $CURRENT_DIRECTORY/vimrc $HOME/.vimrc
-ln -fhs $CURRENT_DIRECTORY/vim $HOME/.vim
+ln -fs $CURRENT_DIRECTORY/tmux.conf $HOME/.tmux.conf
+ln -fs $CURRENT_DIRECTORY/vimrc $HOME/.vimrc
+ln -fs $CURRENT_DIRECTORY/vim $HOME/.vim
+ln -fs $CURRENT_DIRECTORY/nvim $HOME/.config/nvim
