@@ -1,3 +1,4 @@
+autocmd BufWritePre *.md Neoformat
 autocmd BufWritePre *.ts Neoformat
 autocmd BufWritePre *.tsx Neoformat
 autocmd BufWritePre *.js Neoformat
