@@ -98,24 +98,29 @@ function! statusline#rhs() abort
   return l:rhs
 endfunction
 
-let s:powerline_color_default='#BCDEDE'
-let s:powerline_color_modified='#FFDD00'
-let s:powerline_color_pending='#E17899'
+let s:powerline_color_default='#b8bb26' " green
+let s:powerline_color_modified='#fabd2f' " yellow
+let s:powerline_color_pending='#E17899' " unused
 
-let s:statusline_bg_color_default='#3F3F3F'
-let s:statusline_bg_color_modified='#3F3F3F'
-let s:statusline_bg_color_pending='#3F3F3F'
+let s:statusline_bg_color_default='bg'
+let s:statusline_bg_color_modified='bg'
+let s:statusline_bg_color_pending='bg'
 
 let s:statusline_fg_color_default='fg'
-let s:statusline_fg_color_modified='#BCDEDE'
+let s:statusline_fg_color_modified='fg'
 let s:statusline_fg_color_pending='fg'
 
-let s:font_color_default='bg'
-let s:font_color_modified='bg'
-let s:font_color_pending='bg'
+let s:font_color_default='fg'
+let s:font_color_modified='fg'
+let s:font_color_pending='fg'
+
+let s:powerline_font_color_default='bg'
+let s:powerline_font_color_modified='bg'
+let s:powerline_font_color_pending='bg'
 
 let s:powerline_color=s:powerline_color_default
 let s:font_color=s:font_color_default
+let s:powerline_font_color=s:powerline_font_color_default
 let s:statusline_bg_color=s:statusline_bg_color_default
 let s:statusline_fg_color=s:statusline_fg_color_default
 
@@ -135,6 +140,7 @@ function! statusline#check_modified() abort
   if &modified && s:powerline_color != s:powerline_color_modified
     let s:powerline_color=s:powerline_color_modified
     let s:font_color=s:font_color_modified
+    let s:powerline_font_color=s:powerline_font_color_modified
     let s:statusline_bg_color=s:statusline_bg_color_modified
     let s:statusline_fg_color=s:statusline_fg_color_modified
     call statusline#update_highlight()
@@ -142,11 +148,13 @@ function! statusline#check_modified() abort
     if s:async && s:powerline_color != s:powerline_color_pending
       let s:powerline_color=s:powerline_color_pending
       let s:font_color=s:font_color_pending
+    let s:powerline_font_color=s:powerline_font_color_pending
       let s:statusline_bg_color=s:statusline_bg_color_pending
       let s:statusline_fg_color=s:statusline_fg_color_pending
       call statusline#update_highlight()
     elseif !s:async && s:powerline_color != s:powerline_color_default
       let s:powerline_color=s:powerline_color_default
+      let s:powerline_font_color=s:powerline_font_color_default
       let s:font_color=s:font_color_default
       let s:statusline_bg_color=s:statusline_bg_color_default
       let s:statusline_fg_color=s:statusline_fg_color_default
@@ -157,17 +165,16 @@ endfunction
 
 function! statusline#update_highlight() abort
   " StatusLine (middle part)
-  execute 'highlight StatusLine ' . pinnacle#highlight({'bg': s:statusline_fg_color,
+  execute 'highlight StatusLine ' . pinnacle#highlight({'bg': s:font_color,
         \'fg': s:statusline_bg_color})
   execute 'highlight link User1 StatusLine'
 
   " LHS highlight
   execute 'highlight User2 ' . pinnacle#highlight({'bg': s:powerline_color,
-        \'fg': s:font_color})
+        \'fg': s:powerline_font_color})
 
   " LHS powerline char
-  let l:filename_background=pinnacle#extract_fg('StatusLine')
-  execute 'highlight User3 ' . pinnacle#highlight({'bg': l:filename_background,
+  execute 'highlight User3 ' . pinnacle#highlight({'bg': s:statusline_bg_color,
         \'fg': s:powerline_color})
 
   " RHS

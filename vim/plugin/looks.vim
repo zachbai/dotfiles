@@ -1,6 +1,5 @@
 syntax on
 
-set t_Co=256
 set termguicolors
 if exists('$TMUX')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -10,11 +9,25 @@ endif
 " Sets the color scheme based on time of day.
 " If after 5am and before 6pm, sets to a light color scheme
 " Else, sets to a dark color scheme.
-"if strftime("%H") < 18 && strftime("%H") > 5
-  "colors seoul256-light
-"else 
-  colors seoul256
-"endif
+let g:gruvbox_italic=1
+let g:gruvbox_contrast_dark='hard'
+
+colors gruvbox
+if strftime("%H") < 18 && strftime("%H") > 5
+  set background=dark
+else
+  "colors base16-gruvbox-dark-hard
+  set background=dark
+endif
+
+" Special logic for cursor color when highlighted search group.
+nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+
+nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
 " Override the Type highlight group with the same color value.
 " By default, this has term=bold set - we don't want that.
