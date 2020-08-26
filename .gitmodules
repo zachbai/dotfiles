@@ -43,6 +43,7 @@
 [submodule "vim/bundle/yats.vim"]
 	path = vim/bundle/yats.vim
 	url = https://github.com/HerringtonDarkholme/yats.vim.git
+<<<<<<< HEAD
 [submodule "vim/bundle/seoul256.vim"]
 	path = vim/bundle/seoul256.vim
 	url = https://github.com/junegunn/seoul256.vim.git
@@ -61,4 +62,4 @@
 	url = https://github.com/tmux-plugins/tpm
 [submodule "vim/bundle/vim-prettier"]
 	path = vim/bundle/vim-prettier
-	url = https://github.com/prettier/vim-prettier
+	url = https://github.com/prettier/vim-prettier.git
