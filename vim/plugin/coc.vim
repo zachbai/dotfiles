@@ -2,6 +2,7 @@
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap  [g <Plug>(coc-diagnostic-prev)
 nmap  ]g <Plug>(coc-diagnostic-next)
+nmap  ;g :CocDiagnostics<CR>
 
 " GoTo code navigation.
 nmap <silent> <C-]> <Plug>(coc-definition)
