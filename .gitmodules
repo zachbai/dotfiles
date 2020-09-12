@@ -58,7 +58,12 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "vim/bundle/coc.nvim"]
-	path = vim/bundle/coc.nvim
-	url = https://github.com/neoclide/coc.nvim.git
-	branch = release
+[submodule "vim/bundle/nvim-lspconfig"]
+	path = vim/bundle/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "vim/bundle/completion-nvim"]
+	path = vim/bundle/completion-nvim
+	url = https://github.com/nvim-lua/completion-nvim.git
+[submodule "vim/bundle/diagnostic-nvim"]
+	path = vim/bundle/diagnostic-nvim
+	url = https://github.com/nvim-lua/diagnostic-nvim.git
