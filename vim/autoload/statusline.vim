@@ -251,7 +251,28 @@ function! s:get_custom_statusline(action) abort
             \ . '%{get(w:,\"quickfix_title\",\"\")}'
             \ . '%='
     else
-      return g:ZbQuickfixStatusline
+      " Variant of statusline for quick fix window.
+      return 
+            \ '%7*'
+            \ . '%{statusline#lhs()}'
+            \ . '%*'
+            \ . '%4*'
+            \ . ''
+            \ . '\ '
+            \ . '%*'
+            \ . '%3*'
+            \ . '%q'
+            \ . '\ '
+            \ . '%{get(w:,\"quickfix_title\",\"\")}'
+            \ . '%*'
+            \ . '%<'
+            \ . '\ '
+            \ . '%='
+            \ . '\ '
+            \ . ''
+            \ . '%5*'
+            \ . '%{statusline#rhs()}'
+            \ . '%*'
     endif
   endif
 
