@@ -29,10 +29,6 @@ nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
 nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
 nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
-" Override the Type highlight group with the same color value.
-" By default, this has term=bold set - we don't want that.
-execute 'highlight Type ' . pinnacle#highlight({ 'fg': '#DFBC72'}) . ' gui=None'
-
 " Set line number background color to the same as regular background.
 execute 'highlight LineNr ' . pinnacle#highlight({'bg': 'NONE'})
 
