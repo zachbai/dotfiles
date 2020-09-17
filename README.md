@@ -55,7 +55,7 @@ sourced after all other vanilla Vim configuration has been sourced, by a
 one-liner `lua.vim` script in `vim/after/plugin` (which both Vim and Neovim know
 to load after the regular `vim/[plugin|ftplugin]` directories.
 
-## Plugin management
+### Plugin management
 
 Vim plugins are managed via [Pathogen](https://github.com/tpope/vim-pathogen)
 using git submodules.
