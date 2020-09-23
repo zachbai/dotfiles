@@ -7,7 +7,7 @@ PATH=$PATH:$HOME/.pub-cache/bin
 export ZSH_TMUX_AUTOSTART="true"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/zmb/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # oh-my-zsh theme.
 ZSH_THEME="robbyrussell"
@@ -26,7 +26,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Enable FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # FZF config
 # use ripgrep instead of ack
@@ -42,3 +41,5 @@ export BAT_THEME="ansi-dark"
 
 # Enable G3 config.
 [ -f ~/dotfiles_g3/.zshrc_g3 ] && source ~/dotfiles_g3/.zshrc_g3
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

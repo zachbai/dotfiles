@@ -71,3 +71,9 @@
 [submodule "vim/bundle/diagnostic-nvim"]
 	path = vim/bundle/diagnostic-nvim
 	url = https://github.com/nvim-lua/diagnostic-nvim.git
+[submodule "vim/bundle/vim-lsc"]
+	path = vim/bundle/vim-lsc
+	url = https://github.com/natebosch/vim-lsc.git
+[submodule "vim/bundle/vim-lsc-dart"]
+	path = vim/bundle/vim-lsc-dart
+	url = https://github.com/natebosch/vim-lsc-dart.git
