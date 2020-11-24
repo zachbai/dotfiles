@@ -35,3 +35,9 @@ nvimLsp.vimls.setup{
     --suggestFromUnimportedLibraries = "false",
   --};
 --}
+--
+
+-- cpp
+nvimLsp.clangd.setup{
+  on_attach = onAttach;
+}
