@@ -34,9 +34,6 @@
 [submodule "vim/bundle/vim-hug-neovim-rpc"]
 	path = vim/bundle/vim-hug-neovim-rpc
 	url = https://github.com/roxma/vim-hug-neovim-rpc.git
-[submodule "ultisnips"]
-	path = vim/bundle/ultisnips
-	url = https://github.com/SirVer/ultisnips.git
 [submodule "vim/bundle/dartlang-snippets"]
 	path = vim/bundle/dartlang-snippets
 	url = https://github.com/natebosch/dartlang-snippets.git
@@ -80,3 +77,9 @@
 [submodule "vim/bundle/vim-cpp-modern"]
 	path = vim/bundle/vim-cpp-modern
 	url = https://github.com/bfrg/vim-cpp-modern.git
+[submodule "vim/bundle/vim-vsnip"]
+	path = vim/bundle/vim-vsnip
+	url = https://github.com/hrsh7th/vim-vsnip.git
+[submodule "vim/bundle/vim-vsnip-integ"]
+	path = vim/bundle/vim-vsnip-integ
+	url = https://github.com/hrsh7th/vim-vsnip-integ.git
