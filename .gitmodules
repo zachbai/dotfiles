@@ -77,3 +77,6 @@
 [submodule "vim/bundle/vim-lsc-dart"]
 	path = vim/bundle/vim-lsc-dart
 	url = https://github.com/natebosch/vim-lsc-dart.git
+[submodule "vim/bundle/vim-cpp-modern"]
+	path = vim/bundle/vim-cpp-modern
+	url = https://github.com/bfrg/vim-cpp-modern.git
