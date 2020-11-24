@@ -65,9 +65,6 @@
 [submodule "vim/bundle/completion-nvim"]
 	path = vim/bundle/completion-nvim
 	url = https://github.com/nvim-lua/completion-nvim.git
-[submodule "vim/bundle/diagnostic-nvim"]
-	path = vim/bundle/diagnostic-nvim
-	url = https://github.com/nvim-lua/diagnostic-nvim.git
 [submodule "vim/bundle/vim-lsc"]
 	path = vim/bundle/vim-lsc
 	url = https://github.com/natebosch/vim-lsc.git

@@ -2,7 +2,6 @@ local nvimLsp = require"nvim_lsp";
 
 local onAttach = function(client)
   require'completion'.on_attach(client)
-  require'diagnostic'.on_attach(client)
 end
 
 -- Completion settings
