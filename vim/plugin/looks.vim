@@ -12,13 +12,8 @@ endif
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
 
-colors gruvbox
-if strftime("%H") < 18 && strftime("%H") > 5
-  set background=dark
-else
-  "colors base16-gruvbox-dark-hard
-  set background=dark
-endif
+colorscheme gruvbox
+set background=dark
 
 " Special logic for cursor color when highlighted search group.
 nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
