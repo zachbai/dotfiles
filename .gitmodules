@@ -46,9 +46,6 @@
 [submodule ".tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "vim/bundle/gruvbox"]
-	path = vim/bundle/gruvbox
-	url = https://github.com/gruvbox-community/gruvbox.git
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
@@ -83,3 +80,6 @@
 [submodule "vim/bundle/vim-oscyank"]
 	path = vim/bundle/vim-oscyank
 	url = https://github.com/ojroques/vim-oscyank
+[submodule "vim/bundle/nvim-treesitter"]
+	path = vim/bundle/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
