@@ -80,3 +80,6 @@
 [submodule "vim/bundle/vim-vsnip-integ"]
 	path = vim/bundle/vim-vsnip-integ
 	url = https://github.com/hrsh7th/vim-vsnip-integ.git
+[submodule "vim/bundle/vim-oscyank"]
+	path = vim/bundle/vim-oscyank
+	url = https://github.com/ojroques/vim-oscyank
