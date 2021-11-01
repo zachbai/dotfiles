@@ -15,15 +15,6 @@ let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 set background=dark
 
-" Special logic for cursor color when highlighted search group.
-nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
-nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
-nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
-
-nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
-
 " Set line number background color to the same as regular background.
 execute 'highlight LineNr ' . pinnacle#highlight({'bg': 'NONE'})
 
