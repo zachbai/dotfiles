@@ -86,3 +86,12 @@
 [submodule "vim/bundle/lush.nvim"]
 	path = vim/bundle/lush.nvim
 	url = https://github.com/rktjmp/lush.nvim.git
+[submodule "vim/bundle/plenary.nvim"]
+	path = vim/bundle/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "vim/bundle/telescope.nvim"]
+	path = vim/bundle/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule "vim/bundle/telescope-fzy-native.nvim"]
+	path = vim/bundle/telescope-fzy-native.nvim
+	url = https://github.com/nvim-telescope/telescope-fzy-native.nvim.git

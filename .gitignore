@@ -3,3 +3,4 @@
 .DS_Store
 coc-settings.json
 .netrwhist
+vim/bundle/telescope-codesearch.nvim
