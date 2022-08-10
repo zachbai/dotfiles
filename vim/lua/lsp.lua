@@ -1,4 +1,4 @@
-local nvimLsp = require"nvim_lsp";
+local nvimLsp = require"lspconfig";
 
 local onAttach = function(client)
   require'completion'.on_attach(client)
