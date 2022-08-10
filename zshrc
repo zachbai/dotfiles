@@ -4,6 +4,9 @@ PATH=$PATH:$HOME/.local/bin
 # Open source Dart packages.
 PATH=$PATH:$HOME/.pub-cache/bin
 
+# Homebrew executables.
+PATH=$PATH:/opt/homebrew/bin
+
 export ZSH_TMUX_AUTOSTART="true"
 
 # Path to your oh-my-zsh installation.
