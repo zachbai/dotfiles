@@ -16,6 +16,13 @@ vim.g.completion_matching_ignore_case = true
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  command = "lua vim.lsp.buf.formatting_sync()"
+})
+
 -- TS/JS
 nvimLsp.tsserver.setup{
   on_attach = onAttach,
@@ -77,5 +84,10 @@ nvimLsp.clangd.setup{
 nvimLsp.rust_analyzer.setup{
   on_attach = onAttach,
   capabilities = capabilities,
+  ["rust-analyzer"] = {
+    checkOnSave = {
+      command = "clippy",
+    },
+  }
 }
 
