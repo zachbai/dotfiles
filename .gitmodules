@@ -83,9 +83,6 @@
 [submodule "vim/bundle/gruvbox.nvim"]
 	path = vim/bundle/gruvbox.nvim
 	url = https://github.com/ellisonleao/gruvbox.nvim.git
-[submodule "vim/bundle/lush.nvim"]
-	path = vim/bundle/lush.nvim
-	url = https://github.com/rktjmp/lush.nvim.git
 [submodule "vim/bundle/plenary.nvim"]
 	path = vim/bundle/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim
