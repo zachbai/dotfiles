@@ -72,3 +72,10 @@ nvimLsp.clangd.setup{
   -- Experimental config for testing test neovim branch (PR #13371).
   flags = { allow_incremental_sync = true },
 }
+
+-- rust
+nvimLsp.rust_analyzer.setup{
+  on_attach = onAttach,
+  capabilities = capabilities,
+}
+

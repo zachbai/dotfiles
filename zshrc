@@ -42,7 +42,9 @@ export BAT_THEME="ansi-dark"
 # Source /shell files
  for f in ~/shell/*; do source $f; done
 
-# Enable G3 config.
-[ -f ~/dotfiles_g3/.zshrc_g3 ] && source ~/dotfiles_g3/.zshrc_g3
-
+ # Default Fzf config.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Set default editor to nvim.
+export EDITOR="nvim"
+

@@ -24,12 +24,12 @@ vim.api.nvim_set_keymap('n', ';f',
 )
 
 vim.api.nvim_set_keymap('n', '<leader>f',
-  [[<cmd>lua require'zb.telescope'.find_files_from_current_buffer() <CR>]],
+  [[<cmd>lua require'telescope.builtin'.live_grep{} <CR>]],
   { noremap = true, silent=true }
 )
 
 vim.api.nvim_set_keymap('n', ';g',
-  [[<cmd>lua require'zb.telescope'.find_hg_files() <CR>]],
+  [[<cmd>lua require'telescope.builtin'.git_files{} <CR>]],
   { noremap = true, silent=true }
 )
 
@@ -48,29 +48,12 @@ vim.api.nvim_set_keymap('n', ';d',
   { noremap = true, silent=true }
 )
 
-local M = {}
+vim.api.nvim_set_keymap('n', ';r',
+  [[<cmd>lua require'telescope.builtin'.lsp_references{}<CR>]],
+  { noremap = true, silent=true }
+)
 
-function M.find_files_from_current_buffer()
-  require'telescope.builtin'.find_files{
-    cwd=utils.buffer_dir(),
-  }
-end
-
-function M.find_youtube_files()
-  require'telescope.builtin'.find_files{
-    cwd='/google/src/cloud/zbai/dev-fig/google3',
-    search_dirs={
-      'video/youtube/shorts',
-      'video/youtube/discovery',
-      'video/youtube/personalization'
-    },
-  }
-end
-
-function M.find_hg_files()
-  require'telescope.builtin'.find_files{
-    find_command={'hg', 'files'}
-  }
-end
-
-return M
+vim.api.nvim_set_keymap('n', ';j',
+  [[<cmd>lua require'telescope.builtin'.git_branches{}<CR>]],
+  { noremap = true, silent=true }
+)
