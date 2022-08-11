@@ -41,3 +41,5 @@ execute 'highlight! link Error Underlined'
 let s:folded_fg = pinnacle#extract_fg('LineNr')
 let s:folded_bg = pinnacle#extract_bg('Folded')
 execute 'highlight! Folded ' . pinnacle#highlight({'fg': s:folded_fg, 'bg': s:folded_bg})
+
+execute 'highlight Search guifg=#1D2020 guibg=#FABD2E'

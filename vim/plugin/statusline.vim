@@ -26,7 +26,7 @@ if has('statusline')
   "   %)                           End item group.
   set statusline+=%(\(%R%{statusline#ft()}%{statusline#fenc()}\)%)
 
-  set statusline+=%*   " Reset highlight group.
+  "set statusline+=%*   " Reset highlight group.
   set statusline+=%=   " Split point for left and right groups.
 
   set statusline+=\               " Space.
