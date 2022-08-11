@@ -92,3 +92,6 @@
 [submodule "vim/bundle/telescope-fzy-native.nvim"]
 	path = vim/bundle/telescope-fzy-native.nvim
 	url = https://github.com/nvim-telescope/telescope-fzy-native.nvim.git
+[submodule "vim/bundle/lush.nvim"]
+	path = vim/bundle/lush.nvim
+	url = https://github.com/rktjmp/lush.nvim.git
