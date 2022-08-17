@@ -29,7 +29,9 @@ vim.api.nvim_set_keymap('n', '<leader>f',
 )
 
 vim.api.nvim_set_keymap('n', ';g',
-  [[<cmd>lua require'telescope.builtin'.git_files{} <CR>]],
+  "<cmd>lua require'telescope.builtin'.find_files{"..
+  "find_command = {\"git\", \"diff\", \"--name-only\", \"master\" }"..
+  "} <CR>",
   { noremap = true, silent=true }
 )
 
