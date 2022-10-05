@@ -98,3 +98,9 @@
 [submodule "vim/bundle/cmp-nvim-lsp"]
 	path = vim/bundle/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule "vim/bundle/vim-gh-line"]
+	path = vim/bundle/vim-gh-line
+	url = https://github.com/ruanyl/vim-gh-line
+[submodule "vim/bundle/aerial.nvim"]
+	path = vim/bundle/aerial.nvim
+	url = https://github.com/stevearc/aerial.nvim.git
