@@ -66,20 +66,20 @@ nvimLsp.jsonls.setup{
 }
 
 -- Lua
-nvimLsp.sumneko_lua.setup{
-  capabilities = capabilities,
+--nvimLsp.sumneko_lua.setup{
+  --capabilities = capabilities,
 
-  -- Experimental config for testing test neovim branch (PR #13371).
-  flags = { allow_incremental_sync = true },
-}
+  ---- Experimental config for testing test neovim branch (PR #13371).
+  --flags = { allow_incremental_sync = true },
+--}
 
 -- Viml
-nvimLsp.vimls.setup{
-  capabilities = capabilities,
+--nvimLsp.vimls.setup{
+  --capabilities = capabilities,
 
-  -- Experimental config for testing test neovim branch (PR #13371).
-  flags = { allow_incremental_sync = true },
-}
+  ---- Experimental config for testing test neovim branch (PR #13371).
+  --flags = { allow_incremental_sync = true },
+--}
 
 -- Dart
 -- Use vim-lsc for dart until https://github.com/neovim/neovim/issues/12972 is resolved.

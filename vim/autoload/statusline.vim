@@ -165,8 +165,8 @@ endfunction
 
 function! statusline#update_highlight() abort
   " StatusLine (middle part)
-  execute 'highlight StatusLine ' . pinnacle#highlight({'bg': s:statusline_bg_color,
-        \'fg': s:font_color})
+  execute 'highlight StatusLine ' . pinnacle#highlight({'fg': s:statusline_bg_color,
+        \'bg': s:font_color})
   execute 'highlight link User1 StatusLine'
 
   " LHS highlight

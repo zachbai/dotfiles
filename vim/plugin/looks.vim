@@ -23,13 +23,7 @@ execute 'highlight LineNr ' . pinnacle#highlight({'bg': 'NONE'})
 execute 'highlight VertSplit ' . pinnacle#highlight({'fg': 'bg'})
 
 " Set sign column background to the same as the regular background.
-execute 'highlight SignColumn ' . pinnacle#highlight({'bg':'bg'})
-execute 'highlight SignifySignAdd ' . pinnacle#highlight({'bg':'bg'})
-execute 'highlight SignifySignDelete ' . pinnacle#highlight({'bg':'bg'})
-execute 'highlight SignifySignChange ' . pinnacle#highlight({'bg':'bg'})
-execute 'highlight SignifyLineAdd ' . pinnacle#highlight({'bg':'bg'})
-execute 'highlight SignifyLineDelete ' . pinnacle#highlight({'bg':'bg'})
-execute 'highlight SignifyLineChange ' . pinnacle#highlight({'bg':'bg'})
+execute 'highlight GitBorder ' . pinnacle#highlight({'bg':'NONE'})
 
 " Use space chars in between vertical panes, instead of the default '|'.
 set fillchars=vert:\ 

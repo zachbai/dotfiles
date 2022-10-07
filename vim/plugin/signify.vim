@@ -1,1 +1,1 @@
-let g:signify_vcs_list = ['git', 'hg']
+let g:signify_vcs_list = ['hg']
