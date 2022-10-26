@@ -41,11 +41,11 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 require('cmp_nvim_lsp').update_capabilities(capabilities);
 
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
-  command = "lua vim.lsp.buf.formatting_sync()"
+  command = "lua vim.lsp.buf.format()"
 })
 
 -- TS/JS
@@ -56,6 +56,9 @@ nvimLsp.tsserver.setup{
   -- Experimental config for testing test neovim branch (PR #13371).
   flags = { allow_incremental_sync = true },
 }
+
+-- Go
+nvimLsp.gopls.setup{}
 
 -- JSON
 nvimLsp.jsonls.setup{

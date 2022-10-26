@@ -25,6 +25,13 @@ execute 'highlight VertSplit ' . pinnacle#highlight({'fg': 'bg'})
 " Set sign column background to the same as the regular background.
 execute 'highlight GitBorder ' . pinnacle#highlight({'bg':'NONE'})
 
+execute 'highlight clear DiffAdd'
+execute 'highlight clear DiffChange'
+execute 'highlight clear DiffDelete'
+execute 'highlight DiffAdd ' . pinnacle#highlight({'bg':'#262503'})
+execute 'highlight DiffChange ' . pinnacle#highlight({'bg':'#6e4404'})
+execute 'highlight DiffDelete ' . pinnacle#highlight({'bg':'#2e0002'})
+
 " Use space chars in between vertical panes, instead of the default '|'.
 set fillchars=vert:\ 
 
