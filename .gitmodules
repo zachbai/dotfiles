@@ -107,3 +107,9 @@
 [submodule "vim/bundle/vim-graphql"]
 	path = vim/bundle/vim-graphql
 	url = https://github.com/jparise/vim-graphql.git
+[submodule "vim/bundle/prettier.nvim"]
+	path = vim/bundle/prettier.nvim
+	url = https://github.com/MunifTanjim/prettier.nvim.git
+[submodule "vim/bundle/null-ls.nvim"]
+	path = vim/bundle/null-ls.nvim
+	url = https://github.com/jose-elias-alvarez/null-ls.nvim.git
