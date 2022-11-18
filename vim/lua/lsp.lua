@@ -1,17 +1,17 @@
-local nvimLsp = require"lspconfig";
-local cmp = require'cmp';
+local nvimLsp = require "lspconfig";
+local cmp = require 'cmp';
 
 cmp.setup({
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
-       vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-       --vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      --vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
     end,
   },
   window = {
-     --completion = cmp.config.window.bordered(),
-     --documentation = cmp.config.window.bordered(),
+    --completion = cmp.config.window.bordered(),
+    --documentation = cmp.config.window.bordered(),
   },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -29,9 +29,9 @@ cmp.setup({
 })
 
 -- Completion settings
-vim.o.completeopt='menuone,noinsert,noselect'
+vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.g.completion_enable_snippet = 'vim-vsnip'
-vim.g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
+vim.g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
 vim.g.completion_confirm_key = '<CR>'
 vim.g.completion_matching_ignore_case = true
 
@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- TS/JS
-nvimLsp.tsserver.setup{
+nvimLsp.tsserver.setup {
   root_dir = nvimLsp.util.root_pattern(".git", "package.json"),
   capabilities = capabilities,
 
@@ -58,10 +58,10 @@ nvimLsp.tsserver.setup{
 }
 
 -- Go
-nvimLsp.gopls.setup{}
+nvimLsp.gopls.setup {}
 
 -- JSON
-nvimLsp.jsonls.setup{
+nvimLsp.jsonls.setup {
   capabilities = capabilities,
 
   -- Experimental config for testing test neovim branch (PR #13371).
@@ -69,33 +69,33 @@ nvimLsp.jsonls.setup{
 }
 
 -- Lua
---nvimLsp.sumneko_lua.setup{
-  --capabilities = capabilities,
+nvimLsp.sumneko_lua.setup {
+  capabilities = capabilities,
 
-  ---- Experimental config for testing test neovim branch (PR #13371).
-  --flags = { allow_incremental_sync = true },
---}
+  -- Experimental config for testing test neovim branch (PR #13371).
+  flags = { allow_incremental_sync = true },
+}
 
 -- Viml
 --nvimLsp.vimls.setup{
-  --capabilities = capabilities,
+--capabilities = capabilities,
 
-  ---- Experimental config for testing test neovim branch (PR #13371).
-  --flags = { allow_incremental_sync = true },
+---- Experimental config for testing test neovim branch (PR #13371).
+--flags = { allow_incremental_sync = true },
 --}
 
 -- Dart
 -- Use vim-lsc for dart until https://github.com/neovim/neovim/issues/12972 is resolved.
 --nvimLsp.dartls.setup{
-  --init_options = {
-    --onlyAnalyzeProjectsWithOpenFiles = "true",
-    --suggestFromUnimportedLibraries = "false",
-  --};
+--init_options = {
+--onlyAnalyzeProjectsWithOpenFiles = "true",
+--suggestFromUnimportedLibraries = "false",
+--};
 --}
 --
 
 -- cpp
-nvimLsp.clangd.setup{
+nvimLsp.clangd.setup {
   capabilities = capabilities,
 
   -- Experimental config for testing test neovim branch (PR #13371).
@@ -103,7 +103,7 @@ nvimLsp.clangd.setup{
 }
 
 -- rust
-nvimLsp.rust_analyzer.setup{
+nvimLsp.rust_analyzer.setup {
   capabilities = capabilities,
   ["rust-analyzer"] = {
     checkOnSave = {
@@ -112,3 +112,52 @@ nvimLsp.rust_analyzer.setup{
   }
 }
 
+-- TypeScript
+nvimLsp.tsserver.setup {}
+
+nvimLsp.null_ls.setup({
+  on_attach = function(client, bufnr)
+    if client.server_capabilities.documentFormattingProvider then
+      vim.cmd("nnoremap <silent><buffer> <Leader>f :lua vim.lsp.buf.formatting()<CR>")
+
+      -- format on save
+      vim.cmd("autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting()")
+    end
+
+    if client.server_capabilities.documentRangeFormattingProvider then
+      vim.cmd("xnoremap <silent><buffer> <Leader>f :lua vim.lsp.buf.range_formatting({})<CR>")
+    end
+  end,
+})
+
+local prettier = require("prettier")
+prettier.setup({
+  bin = 'prettier', -- or `'prettierd'` (v0.22+)
+  filetypes = {
+    "css",
+    "graphql",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "less",
+    "markdown",
+    "scss",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+  },
+  ["null-ls"] = {
+    condition = function()
+      return prettier.config_exists({
+        -- if `false`, skips checking `package.json` for `"prettier"` key
+        check_package_json = true,
+      })
+    end,
+    runtime_condition = function(params)
+      -- return false to skip running prettier
+      return true
+    end,
+    timeout = 5000,
+  }
+})
